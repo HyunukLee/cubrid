@@ -44,7 +44,6 @@ set (COMPAT_HEADERS
 set(THREAD_SOURCES
   ${THREAD_DIR}/critical_section.c
   ${THREAD_DIR}/critical_section_tracker.cpp
-  ${THREAD_DIR}/internal_tasks_worker_pool.cpp
   ${THREAD_DIR}/thread_daemon.cpp
   ${THREAD_DIR}/thread_entry.cpp
   ${THREAD_DIR}/thread_entry_task.cpp
@@ -52,11 +51,11 @@ set(THREAD_SOURCES
   ${THREAD_DIR}/thread_looper.cpp
   ${THREAD_DIR}/thread_manager.cpp
   ${THREAD_DIR}/thread_waiter.cpp
-  ${THREAD_DIR}/thread_worker_pool.cpp
+  ${THREAD_DIR}/thread_worker_pool_impl.cpp
+  ${THREAD_DIR}/thread_worker_pool_taskcap.cpp
   )
 set(THREAD_HEADERS
   ${THREAD_DIR}/critical_section_tracker.hpp
-  ${THREAD_DIR}/internal_tasks_worker_pool.hpp
   ${THREAD_DIR}/thread_compat.hpp
   ${THREAD_DIR}/thread_daemon.hpp
   ${THREAD_DIR}/thread_entry.hpp
@@ -67,6 +66,7 @@ set(THREAD_HEADERS
   ${THREAD_DIR}/thread_task.hpp
   ${THREAD_DIR}/thread_waiter.hpp
   ${THREAD_DIR}/thread_worker_pool.hpp
+  ${THREAD_DIR}/thread_worker_pool_impl.hpp
   ${THREAD_DIR}/thread_worker_pool_taskcap.hpp
   )
 
@@ -190,6 +190,7 @@ set (BASE_HEADERS
   ${BASE_DIR}/filesys_parser.hpp
   ${BASE_DIR}/cgroup.hpp
   ${BASE_DIR}/resources.hpp
+  ${BASE_DIR}/count_registry.hpp
   )
 
 set(EXECUTABLE_SOURCES
